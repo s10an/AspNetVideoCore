@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreVideo.Enteties;
+using AspNetCoreVideo.Models;
+
 
 namespace AspNetCoreVideo.Services
 {
@@ -14,11 +16,11 @@ namespace AspNetCoreVideo.Services
 		{
 			_videos = new List<Video>
 			{
-				new Video { Id = 1, GenreId = 2, Title = "Shreck" },
-				new Video { Id = 2, GenreId = 4,Title = "Unbreakable" },
-				new Video { Id = 3, GenreId = 3,Title = "Tron" },
-				new Video { Id = 4, GenreId = 2,Title = "Troy" },
-				new Video { Id = 4, GenreId = 1,Title = "Memento" }
+				new Video { Id = 1, Genre = Models.Genres.Animates, Title = "Shreck" },
+				new Video { Id = 2, Genre = Models.Genres.Romance,Title = "Unbreakable" },
+				new Video { Id = 3, Genre = Models.Genres.Action,Title = "Tron" },
+				new Video { Id = 4, Genre = Models.Genres.Comedy,Title = "Troy" },
+				new Video { Id = 5, Genre = Models.Genres.Animates,Title = "Memento" }
 			};
 		}
 

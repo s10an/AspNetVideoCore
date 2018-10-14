@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AspNetCoreVideo.Enteties;
 using AspNetCoreVideo.Services;
 using AspNetCoreVideo.ViewModels;
+using AspNetCoreVideo.Models;
 
 namespace AspNetCoreVideo.Controllers
 {
@@ -25,7 +26,7 @@ namespace AspNetCoreVideo.Controllers
 			{
 				Id = video.Id,
 				Title = video.Title,
-				Genre = Enum.GetName(typeof(Genres), video.GenreId)
+				Genre = video.Genre.ToString()
 			});
 
 
@@ -41,7 +42,7 @@ namespace AspNetCoreVideo.Controllers
 			{
 				Id = video.Id,
 				Title = video.Title,
-				Genre = Enum.GetName(typeof(Genres), video.GenreId)
+				Genre = video.Genre.ToString()
 			});
 		}
 
