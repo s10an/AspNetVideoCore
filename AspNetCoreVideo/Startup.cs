@@ -33,6 +33,7 @@ namespace AspNetCoreVideo
 		{
 			services.AddMvc();
 			services.AddSingleton<IMessageService, ConfigurationMessageService>();
+			services.AddScoped<IVideoData, MockVideoData>();
 			
 		}
 
