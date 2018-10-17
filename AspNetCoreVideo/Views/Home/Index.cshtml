@@ -4,16 +4,17 @@
 	<title>Video</title>
 </head>
 <body>
+	@Html.ActionLink("Create new", "Create")
 	<table>
 		@foreach (var video in Model)
 		{
-		<tr>
-			<td>@Html.ActionLink(video.Id.ToString(), "Details", new { id = video.Id })</td>
-			<td>@video.Title</td>
-			<td>@video.Genre</td>
-		</tr>
+			<tr>
+				<td>@Html.ActionLink(video.Id.ToString(), "Details", new { id = video.Id })</td>
+				<td>@video.Title</td>
+				<td>@video.Genre</td>
+			</tr>
 		}
 	</table>
-	
+
 </body>
 </html>
