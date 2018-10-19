@@ -12,5 +12,7 @@ namespace AspNetCoreVideo.Services
 		Video Get(int Id);
 
 		void Add(Video video);
+
+		int Commit();
 	}
 }
