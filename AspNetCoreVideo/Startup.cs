@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
+using AspNetCoreVideo.Entities;
+using Microsoft.Extensions.FileProviders;
 
 namespace AspNetCoreVideo
 {
@@ -40,6 +43,7 @@ namespace AspNetCoreVideo
 			services.AddMvc();
 			services.AddSingleton<IMessageService, ConfigurationMessageService>();
 			services.AddScoped<IVideoData, SqlVideoData>();
+			services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<VideoDbContext>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +54,14 @@ namespace AspNetCoreVideo
 				app.UseDeveloperExceptionPage();
 			}
 
+			app.UseAuthentication();
+			app.UseStaticFiles();
+			app.UseStaticFiles(new StaticFileOptions()
+			{
+				FileProvider = new PhysicalFileProvider(
+				Path.Combine(Directory.GetCurrentDirectory(), @"Lib")),
+				RequestPath = new PathString("/lib")
+			});
 			app.UseMvc(routes =>
 			{
 				routes.MapRoute(

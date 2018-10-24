@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AspNetCoreVideo.Enteties;
+using AspNetCoreVideo.Entities;
 using AspNetCoreVideo.Services;
 using AspNetCoreVideo.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -55,7 +55,7 @@ namespace AspNetCoreVideo.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Create(VideoEditViewModelcs model)
+		public IActionResult Create(VideoEditViewModel model)
 		{
 			if (ModelState.IsValid)
 			{
@@ -80,12 +80,12 @@ namespace AspNetCoreVideo.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Edit(int id, VideoEditViewModelcs model)
+		public IActionResult Edit(int id, VideoEditViewModel model)
 		{
 			var video = _videos.Get(id);
-			if (video == null || !ModelState.IsValid)
+			if (!ModelState.IsValid)
 			{
-				return View(model);
+				return View(video);
 			}
 
 			video.Title = model.Title;
