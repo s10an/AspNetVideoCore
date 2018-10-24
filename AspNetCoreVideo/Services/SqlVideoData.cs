@@ -1,5 +1,5 @@
 ﻿using AspNetCoreVideo.Data;
-using AspNetCoreVideo.Enteties;
+using AspNetCoreVideo.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

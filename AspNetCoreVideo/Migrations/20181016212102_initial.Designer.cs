@@ -20,7 +20,7 @@ namespace AspNetCoreVideo.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AspNetCoreVideo.Enteties.Video", b =>
+            modelBuilder.Entity("AspNetCoreVideo.Entities.Video", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
